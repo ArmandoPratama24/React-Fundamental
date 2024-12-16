@@ -1,21 +1,12 @@
-function Article () {
-    const name = "Hayakawa"
-    const titles = ["tutorial react js", "tutorial vite", "Tutorial NextJs"]
-
-
+function Article(props) {
     return (
         <>
-            <div>{name}</div>
-            <div>{titles.map(title => {
-                return (
-                    <>
-                    <div>{title}</div>
-                    </>
-                );
-            })}
-        </div>
-    </>
-  );
+            <h3>{props.title}</h3>
+            <small>
+                Date: {props.date}, tags: {props.tags.join(" ,")}
+            </small>
+        </>
+    );
 }
 
 export default Article
