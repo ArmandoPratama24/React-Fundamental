@@ -6,6 +6,7 @@ import Search  from "../components/Search";
 function Homepage() {
     const [posts, setPosts] = useState(postData)
     const [totalPosts, setTotalPosts] = useState(0);
+    const [externalPosts, setExternalPosts] = useState([]);
 
     const onSearchChange = (value) => {
         const filteredPosts = postData.filter((item) => 
@@ -16,12 +17,10 @@ function Homepage() {
     };
 
     useEffect(() => {
-        console.log("render")
-
-        return () => {
-            console.log("cleanup")
-        }
-    }, [posts]);
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then((response) => response.json())
+    .then((json) => setExternalPosts(json));
+    }, [])
 
     return ( 
         <>
@@ -30,6 +29,11 @@ function Homepage() {
             {posts.map((props, index) => (
                 <Article { ...props} key={index} />
                 ))};
+                <hr />
+                <h2>External Post</h2>
+                {externalPosts.map((item, index) => (
+                    <div key={index}>- {item.title}</div>
+                ))}
         </>
     );
 }
