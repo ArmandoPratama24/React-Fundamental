@@ -20,7 +20,11 @@ function Homepage() {
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
     .then((json) => setExternalPosts(json));
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        console.log("ada Post Baru")
+    }, [posts])
 
     return ( 
         <>
