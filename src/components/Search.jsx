@@ -7,8 +7,8 @@ function Search(props) {
         props.onSearchChange(search);
     };
 
-    const searchKeydown = e => {
-        if (e.key === "Enter") {
+    const searchKeydown = (e) => {
+        if ((e.key === "Enter")) {
             onSearchChange();
         }
     }
@@ -17,7 +17,7 @@ function Search(props) {
         <>
         <div>
             Cari Artikel : {" "}
-            <input onChange={e => setSearch(e.target.value)} onKeyDown={searchKeydown}></input>
+            <input onChange={(e) => setSearch(e.target.value)} onKeyDown={searchKeydown}></input>
             <button onClick={onSearchChange}>Cari</button>
         </div>
             <small>
