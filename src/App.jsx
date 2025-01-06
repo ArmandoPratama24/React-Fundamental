@@ -1,5 +1,4 @@
 import './App.css'
-import Home from "./pages/index"
 import {GlobalContext} from "./context"
 import { RouterProvider } from 'react-router'
 import {router} from "./routers"

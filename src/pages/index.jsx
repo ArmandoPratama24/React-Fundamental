@@ -4,8 +4,9 @@ import Article from "../components/article";
 import Search  from "../components/Search";
 
 function Homepage() {
-    const [posts, setPosts] = useState(postData)
+    const [posts, setPosts] = useState(postData);
     const [totalPosts, setTotalPosts] = useState(0);
+    
 
     const onSearchChange = (value) => {
         const filteredPosts = postData.filter((item) => 
@@ -16,11 +17,11 @@ function Homepage() {
     };
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-        .then((response) => response.json())
-        .then((json) => setPosts(json));
-        }, []);
-
+        fetch("https://jsonplaceholder.typicode.com/todos")
+        .then((respon) => respon.json())
+        .then((json) => setPosts(json))
+    }, [])
+    
     return ( 
         <>
             <h1>Simple Blog</h1>
