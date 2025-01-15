@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import postData from "../posts.json";
 import Article from "../components/article";
 import Search  from "../components/Search";
@@ -15,12 +15,6 @@ function Homepage() {
         setPosts(filteredPosts)
         setTotalPosts(filteredPosts.length);
     };
-
-    useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/todos")
-        .then((respon) => respon.json())
-        .then((json) => setPosts(json))
-    }, [])
     
     return ( 
         <>
